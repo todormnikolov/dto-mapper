@@ -1,8 +1,8 @@
 package com.volasoftware.dtomapper.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.volasoftware.dtomapper.enums.Country;
+
+import javax.persistence.*;
 
 @Entity
 public class Location {
@@ -11,15 +11,17 @@ public class Location {
     @GeneratedValue
     private long id;
 
-    private String country;
+    @Enumerated(EnumType.STRING)
+    private Country country;
 
     private String city;
 
     private String address;
 
-    public Location() { }
+    public Location() {
+    }
 
-    public Location(String country, String city, String address) {
+    public Location(Country country, String city, String address) {
         this.country = country;
         this.city = city;
         this.address = address;
@@ -33,11 +35,11 @@ public class Location {
         this.id = id;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

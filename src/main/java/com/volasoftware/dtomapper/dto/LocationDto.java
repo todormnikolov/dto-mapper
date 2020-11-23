@@ -1,18 +1,9 @@
 package com.volasoftware.dtomapper.dto;
 
 public class LocationDto {
-    private long id;
     private String country;
     private String city;
     private String address;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getCountry() {
         return country;

@@ -33,8 +33,8 @@ public class MapperHelper {
         }
 
         LocationDto locationDto = new LocationDto();
-        locationDto.setId(location.getId());
-        locationDto.setCountry(location.getCountry());
+//        locationDto.setId(location.getId());
+        locationDto.setCountry(location.getCountry().getName());
         locationDto.setCity(location.getCity());
         locationDto.setAddress(location.getAddress());
 

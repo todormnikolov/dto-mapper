@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 public class UserDto {
+
     private long id;
     private String name;
     private String email;
@@ -12,7 +13,6 @@ public class UserDto {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<UserDto> followers;
-
 
     public long getId() {
         return id;
