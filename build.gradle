@@ -10,6 +10,12 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+	mavenLocal()
+}
+
+ext {
+	mapstructVersion = "1.4.1.Final"
+	lombokVersion = "1.18.12"
 }
 
 dependencies {
@@ -19,8 +25,11 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-test'
 
 	// MapStruct
-	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	implementation "org.projectlombok:lombok:${lombokVersion}"
+
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 	runtimeOnly 'com.h2database:h2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

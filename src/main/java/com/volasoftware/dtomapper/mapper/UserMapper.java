@@ -6,17 +6,21 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.Named;
+import org.mapstruct.factory.Mappers;
 
 @Mapper(uses = LocationMapper.class)
 public interface UserMapper {
 
+    UserMapper INSTANCE = Mappers.getMapper( UserMapper.class );
+
     @Mappings({
-            @Mapping(target = "name", source = "user", qualifiedByName = "concatName")
+            @Mapping(target = "name", source = "user", qualifiedByName = "concatUserName"),
+            @Mapping(target = "address", source = "location")
     })
     UserDto toDto(User user);
 
-    @Named("concatName")
-    default String concatUserName(User user) {
+    @Named("concatUserName")
+    default String concatName(User user) {
         return String.format("%s %s", user.getFirstName(), user.getLastName());
     }
 }

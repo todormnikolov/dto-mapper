@@ -18,7 +18,7 @@ public class MapperHelper {
         userDto.setId(user.getId());
         userDto.setName(user.getFirstName() + " " + user.getLastName());
         userDto.setEmail(user.getEmail());
-        userDto.setAddress(mapToDto(user.getAddress()));
+        userDto.setAddress(mapToDto(user.getLocation()));
             userDto.setFollowers(
                     user.getFollowers().stream()
                             .map(MapperHelper::mapToDto)

@@ -2,7 +2,6 @@ package com.volasoftware.dtomapper.service;
 
 import com.volasoftware.dtomapper.dto.UserDto;
 import com.volasoftware.dtomapper.mapper.UserMapper;
-import com.volasoftware.dtomapper.mapper.UserMapperImpl;
 import com.volasoftware.dtomapper.model.User;
 import com.volasoftware.dtomapper.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -17,11 +16,10 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private final UserMapper userMapper;
+    private final UserMapper userMapper = UserMapper.INSTANCE;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        userMapper = new UserMapperImpl();
     }
 
     public List<UserDto> getAllUsers() {
