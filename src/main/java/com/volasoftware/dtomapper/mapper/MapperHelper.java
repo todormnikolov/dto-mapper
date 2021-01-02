@@ -4,6 +4,7 @@ import com.volasoftware.dtomapper.dto.LocationDto;
 import com.volasoftware.dtomapper.dto.UserDto;
 import com.volasoftware.dtomapper.model.Location;
 import com.volasoftware.dtomapper.model.User;
+import com.volasoftware.dtomapper.util.DateUtil;
 
 import java.util.stream.Collectors;
 
@@ -17,6 +18,8 @@ public class MapperHelper {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
         userDto.setName(user.getFirstName() + " " + user.getLastName());
+        userDto.setAge(DateUtil.calculateAge(user.getBirthday()));
+        userDto.setLastLogin(DateUtil.formatDateTime(user.getLastLogin()));
         userDto.setEmail(user.getEmail());
         userDto.setAddress(mapToDto(user.getAddress()));
             userDto.setFollowers(

@@ -8,6 +8,8 @@ public class UserDto {
 
     private long id;
     private String name;
+    private int age;
+    private String lastLogin;
     private String email;
     private LocationDto address;
 
@@ -28,6 +30,22 @@ public class UserDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(String lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
     public String getEmail() {

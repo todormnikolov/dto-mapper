@@ -3,6 +3,8 @@ package com.volasoftware.dtomapper.model;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -16,6 +18,10 @@ public class User {
 
     private String lastName;
 
+    private LocalDate birthday;
+
+    private LocalDateTime lastLogin;
+
     private String email;
 
     private String password;
@@ -28,9 +34,11 @@ public class User {
 
     public User() { }
 
-    public User(String firstName, String lastName, String email, String password, Location location) {
+    public User(String firstName, String lastName, LocalDate birthday, LocalDateTime lastLogin, String email, String password, Location location) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthday = birthday;
+        this.lastLogin = lastLogin;
         this.email = email;
         this.location = location;
         setPassword(password);
@@ -58,6 +66,22 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
     @Column(unique = true)
