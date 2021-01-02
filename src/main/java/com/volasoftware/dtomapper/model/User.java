@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -22,6 +24,10 @@ public class User {
 
     private String lastName;
 
+    private LocalDate birthday;
+
+    private LocalDateTime lastLogin;
+
     @Column(unique = true)
     private String email;
 
@@ -33,9 +39,11 @@ public class User {
     @ManyToMany()
     private Set<User> followers;
 
-    public User(String firstName, String lastName, String email, String password, Location location) {
+    public User(String firstName, String lastName, LocalDate birthday, LocalDateTime lastLogin, String email, String password, Location location) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthday = birthday;
+        this.lastLogin = lastLogin;
         this.email = email;
         this.location = location;
         setPassword(password);

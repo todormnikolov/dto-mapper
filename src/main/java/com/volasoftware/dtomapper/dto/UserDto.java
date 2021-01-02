@@ -12,6 +12,8 @@ public class UserDto {
 
     private long id;
     private String name;
+    private int age;
+    private String lastLogin;
     private String email;
     private LocationDto address;
 
