@@ -11,12 +11,12 @@ import org.mapstruct.Named;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Mapper(uses = LocationMapper.class, imports = {Period.class, LocalDate.class})
+@Mapper(uses = LocationMapper.class, imports = {DateUtil.class})
 public interface UserMapper {
 
     @Mappings({
             @Mapping(target = "name", source = "user", qualifiedByName = "concatName"),
-            @Mapping(target = "age", expression = "java(Period.between(user.getBirthday(), LocalDate.now()).getYears())"),
+            @Mapping(target = "age", expression = "java(DateUtil.calculateAge(user.getBirthday()))"),
             @Mapping(target = "lastLogin", dateFormat = DateUtil.DATETIME_PATTERN)
     })
     UserDto toDto(User user);
