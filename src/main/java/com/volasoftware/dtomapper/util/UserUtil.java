@@ -3,19 +3,38 @@ package com.volasoftware.dtomapper.util;
 import com.volasoftware.dtomapper.model.Location;
 import com.volasoftware.dtomapper.model.User;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
 public class UserUtil {
 
     public static List<User> getInitialUsers() {
-        User user1 = new User("John", "Doe", "john.doe@gmail.com", "password",
+        User user1 = new User(
+                "John",
+                "Doe",
+                LocalDate.of(2001, 1, 1),
+                LocalDateTime.now().minusHours(5),
+                "john.doe@gmail.com",
+                "password",
                 new Location("USA", "NY", "Somewhere")
         );
-        User user2 = new User("John", "Snow", "john.snow@gmail.com", "password",
+        User user2 = new User(
+                "John",
+                "Snow",
+                LocalDate.of(1990, 3, 3),
+                LocalDateTime.now().minusDays(5),
+                "john.snow@gmail.com",
+                "password",
                 new Location("The North", "Winterfell", "Main street")
         );
-        User user3 = new User("John", "Gol", "john.gol@gmail.com", "password",
+        User user3 = new User("John",
+                "Gol",
+                LocalDate.of(2000, 12, 12),
+                LocalDateTime.now(),
+                "john.gol@gmail.com",
+                "password",
                 new Location("Bulgaria", "Vratsa", "ul. Probiva 1a")
         );
 
