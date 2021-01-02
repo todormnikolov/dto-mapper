@@ -8,9 +8,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.Named;
 
-import java.time.LocalDate;
-import java.time.Period;
-
 @Mapper(uses = LocationMapper.class, imports = {DateUtil.class})
 public interface UserMapper {
 
