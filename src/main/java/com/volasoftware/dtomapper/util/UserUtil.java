@@ -41,7 +41,7 @@ public class UserUtil {
 
         user1.setFollowers(Set.of(user2));
         user2.setFollowers(Set.of(user3));
-//        user3.setFollowers(Set.of(user1));
+        user3.setFollowers(Set.of(user1));
 
         return List.of(user1, user2, user3);
     }
